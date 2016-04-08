@@ -1,9 +1,7 @@
 __precompile__()
 
 """
-    NumericSuffixes
-
-Provides macro `@suffix` for generating shorthand numeric conversion suffixes.
+Provides the [`@suffix`]({ref}) macro for generating shorthand numeric conversion suffixes.
 
 **Examples**
 
@@ -41,9 +39,13 @@ genfunc(n, T :: Symbol) = genfunc(n, :(x -> $(T)(x)))
 genfunc(n, other)       = error("invalid arguments for `@suffix` macro.")
 
 """
-    @suffix n T
-
 Generate a new numeric suffix named `n` which converts numbers to type `T`.
+
+**Signature**
+
+```julia
+@suffix n T
+```
 
 **Examples**
 
@@ -97,12 +99,7 @@ const suffixes = (
 for (n, T) in suffixes
     @eval begin
         export $n
-        @doc """
-            $($(string(n)))
-
-        Numeric suffix for `$($T)` values.
-        """ ->
-        @suffix $n $T
+        @doc("Numeric suffix for `$($T)` values.", @suffix($n, $T))
     end
 end
 
