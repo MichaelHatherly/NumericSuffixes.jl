@@ -1,0 +1,54 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "NumericSuffixes\n\n\nShorthand numeric conversions.\n\n\n\n\nContents\n\n\n\n\nNumericSuffixes\n\n\nContents\n\n\nInstallation\n\n\nPublic Interface\n\n\nDefault Suffixes\n\n\n\n\n\n\n\n\n\n\nInstallation\n\n\nThis package is registered in \nMETADATA.jl\n and so can be installed using \nPkg.add\n\n\nPkg\n.\nadd\n(\nNumericSuffixes\n)\n\n\n\n\n\n\n\n\nPublic Interface\n\n\n#\n\n\nNumericSuffixes\n \n \nModule\n.\n\n\n\n\nProvides the \n@suffix\n macro for generating shorthand numeric conversion suffixes.\n\n\nExamples\n\n\nx\n \n=\n \n1\ni8\n        \n# Convert `1` to `Int8`.\n\n\ny\n \n=\n \n3\nu32\n       \n# Convert `3` to `UInt32`.\n\n\nz\n \n=\n \n(\nx\n \n+\n \ny\n)\nr16\n \n# Convert `4` to `Float16`.\n\n\n\n\n\n\nDefault Suffixes\n\n\n16 suffixes are provided by default:\n\n\n\n\ni8   --\n Int8\n\n\ni16  --\n Int16\n\n\ni32  --\n Int32\n\n\ni64  --\n Int64\n\n\ni128 --\n Int128\n\n\nu8   --\n UInt8\n\n\nu16  --\n UInt16\n\n\nu32  --\n UInt32\n\n\nu64  --\n UInt64\n\n\nu128 --\n UInt128\n\n\nr16  --\n Float16\n\n\nr32  --\n Float32\n\n\nr64  --\n Float64\n\n\nc32  --\n Complex32\n\n\nc64  --\n Complex64\n\n\nc128 --\n Complex128\n\n\n\n\nAdditional user defined suffixes can be made using the \n@suffix\n macro.\n\n\n#\n\n\nNumericSuffixes.@suffix\n \n \nMacro\n.\n\n\n\n\nGenerate a new numeric suffix named \nn\n which converts numbers to type \nT\n.\n\n\nSignature\n\n\n@\nsuffix\n \nn\n \nT\n\n\n\n\n\n\nExamples\n\n\n@\nsuffix\n \ni8\n \nInt8\n\n\n\nx\n \n=\n \n1\ni8\n\n\ntypeof\n(\nx\n)\n \n==\n \nInt8\n\n\n\n\n\n\nMore complex conversions can be made using anonymous function syntax:\n\n\n@\nsuffix\n \nt16\n \nx\n \n-\n \ntrunc\n(\nInt16\n,\n \nx\n)\n\n\n\nx\n \n=\n \n1.2\nt16\n\n\ntypeof\n(\nx\n)\n \n==\n \nInt16\n\n\n\n\n\n\n\n\nDefault Suffixes\n\n\n\n\nSigned Integers\n\n\n#\n\n\nNumericSuffixes.i8\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nInt8\n values.\n\n\n#\n\n\nNumericSuffixes.i16\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nInt16\n values.\n\n\n#\n\n\nNumericSuffixes.i32\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nInt32\n values.\n\n\n#\n\n\nNumericSuffixes.i64\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nInt64\n values.\n\n\n#\n\n\nNumericSuffixes.i128\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nInt128\n values.\n\n\n\n\nUnsigned Integers\n\n\n#\n\n\nNumericSuffixes.u8\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nUInt8\n values.\n\n\n#\n\n\nNumericSuffixes.u16\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nUInt16\n values.\n\n\n#\n\n\nNumericSuffixes.u32\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nUInt32\n values.\n\n\n#\n\n\nNumericSuffixes.u64\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nUInt64\n values.\n\n\n#\n\n\nNumericSuffixes.u128\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nUInt128\n values.\n\n\n\n\nFloating Point Numbers\n\n\n#\n\n\nNumericSuffixes.r16\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nFloat16\n values.\n\n\n#\n\n\nNumericSuffixes.r32\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nFloat32\n values.\n\n\n#\n\n\nNumericSuffixes.r64\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nFloat64\n values.\n\n\n\n\nComplex Floating Point Numbers\n\n\n#\n\n\nNumericSuffixes.c32\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nComplex{Float16}\n values.\n\n\n#\n\n\nNumericSuffixes.c64\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nComplex{Float32}\n values.\n\n\n#\n\n\nNumericSuffixes.c128\n \n \nType\n.\n\n\n\n\nNumeric suffix for \nComplex{Float64}\n values.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#numericsuffixes", 
+            "text": "Shorthand numeric conversions.", 
+            "title": "NumericSuffixes"
+        }, 
+        {
+            "location": "/#contents", 
+            "text": "NumericSuffixes  Contents  Installation  Public Interface  Default Suffixes", 
+            "title": "Contents"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "This package is registered in  METADATA.jl  and so can be installed using  Pkg.add  Pkg . add ( NumericSuffixes )", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#public-interface", 
+            "text": "#  NumericSuffixes     Module .   Provides the  @suffix  macro for generating shorthand numeric conversion suffixes.  Examples  x   =   1 i8          # Convert `1` to `Int8`.  y   =   3 u32         # Convert `3` to `UInt32`.  z   =   ( x   +   y ) r16   # Convert `4` to `Float16`.   Default Suffixes  16 suffixes are provided by default:   i8   --  Int8  i16  --  Int16  i32  --  Int32  i64  --  Int64  i128 --  Int128  u8   --  UInt8  u16  --  UInt16  u32  --  UInt32  u64  --  UInt64  u128 --  UInt128  r16  --  Float16  r32  --  Float32  r64  --  Float64  c32  --  Complex32  c64  --  Complex64  c128 --  Complex128   Additional user defined suffixes can be made using the  @suffix  macro.  #  NumericSuffixes.@suffix     Macro .   Generate a new numeric suffix named  n  which converts numbers to type  T .  Signature  @ suffix   n   T   Examples  @ suffix   i8   Int8  x   =   1 i8  typeof ( x )   ==   Int8   More complex conversions can be made using anonymous function syntax:  @ suffix   t16   x   -   trunc ( Int16 ,   x )  x   =   1.2 t16  typeof ( x )   ==   Int16", 
+            "title": "Public Interface"
+        }, 
+        {
+            "location": "/#default-suffixes", 
+            "text": "", 
+            "title": "Default Suffixes"
+        }, 
+        {
+            "location": "/#signed-integers", 
+            "text": "#  NumericSuffixes.i8     Type .   Numeric suffix for  Int8  values.  #  NumericSuffixes.i16     Type .   Numeric suffix for  Int16  values.  #  NumericSuffixes.i32     Type .   Numeric suffix for  Int32  values.  #  NumericSuffixes.i64     Type .   Numeric suffix for  Int64  values.  #  NumericSuffixes.i128     Type .   Numeric suffix for  Int128  values.", 
+            "title": "Signed Integers"
+        }, 
+        {
+            "location": "/#unsigned-integers", 
+            "text": "#  NumericSuffixes.u8     Type .   Numeric suffix for  UInt8  values.  #  NumericSuffixes.u16     Type .   Numeric suffix for  UInt16  values.  #  NumericSuffixes.u32     Type .   Numeric suffix for  UInt32  values.  #  NumericSuffixes.u64     Type .   Numeric suffix for  UInt64  values.  #  NumericSuffixes.u128     Type .   Numeric suffix for  UInt128  values.", 
+            "title": "Unsigned Integers"
+        }, 
+        {
+            "location": "/#floating-point-numbers", 
+            "text": "#  NumericSuffixes.r16     Type .   Numeric suffix for  Float16  values.  #  NumericSuffixes.r32     Type .   Numeric suffix for  Float32  values.  #  NumericSuffixes.r64     Type .   Numeric suffix for  Float64  values.", 
+            "title": "Floating Point Numbers"
+        }, 
+        {
+            "location": "/#complex-floating-point-numbers", 
+            "text": "#  NumericSuffixes.c32     Type .   Numeric suffix for  Complex{Float16}  values.  #  NumericSuffixes.c64     Type .   Numeric suffix for  Complex{Float32}  values.  #  NumericSuffixes.c128     Type .   Numeric suffix for  Complex{Float64}  values.", 
+            "title": "Complex Floating Point Numbers"
+        }
+    ]
+}
