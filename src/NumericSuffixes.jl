@@ -1,7 +1,7 @@
 __precompile__()
 
 """
-Provides the [`@suffix`]({ref}) macro for generating shorthand numeric conversion suffixes.
+Provides the [`@suffix`](@ref) macro for generating shorthand numeric conversion suffixes.
 
 **Examples**
 
