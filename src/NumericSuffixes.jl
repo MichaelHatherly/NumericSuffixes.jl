@@ -33,7 +33,7 @@ gentype(n)           = error("invalid `@suffix` usage. `name` must be a `Symbol`
 function genfunc(n, ex :: Expr)
     isexpr(ex, :->, 2)      || error("expression must be an anonymous function.")
     isa(ex.args[1], Symbol) || error("anonymous function must have one argument.")
-    :(@inline Base.(:*)($(ex.args[1]) :: Number, ::Type{$n}) = $(ex.args[2]))
+    :(@inline (*)($(ex.args[1]) :: Number, ::Type{$n}) = $(ex.args[2]))
 end
 genfunc(n, T :: Symbol) = genfunc(n, :(x -> $(T)(x)))
 genfunc(n, other)       = error("invalid arguments for `@suffix` macro.")
@@ -67,6 +67,7 @@ typeof(x) == Int16
 """
 macro suffix(n, T)
     quote
+        import Base.Operators: (*)
         $(gentype(n))
         $(genfunc(n, T))
         $n
