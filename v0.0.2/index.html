@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>NumericSuffixes.jl - Shorthand numeric conversions.</title>
+      
+      
+        <meta name="description" content="Shorthand numeric conversions.">
+      
+      
+      
+        <meta name="author" content="Michael Hatherly">
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="NumericSuffixes.jl">
+    <meta property="og:image" content="None/./">
+    <meta name="apple-mobile-web-app-title" content="NumericSuffixes.jl">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('./assets/fonts/icon.eot?52m981');
+      	src: url('./assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('./assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('./assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('./assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="./assets/stylesheets/application-a422ff04cc.css">
+    
+      <link rel="stylesheet" href="./assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu+Mono">
+      <style>
+        body, input {
+          font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="./assets/Documenter.css">
+    
+    <script src="./assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-indigo palette-accent-blue">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+          </span>
+        
+        NumericSuffixes.jl
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/MichaelHatherly/NumericSuffixes.jl" class="project">
+    <div class="banner">
+      
+      <div class="name">
+        <strong>
+          NumericSuffixes.jl
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          MichaelHatherly/NumericSuffixes.jl
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/MichaelHatherly/NumericSuffixes.jl/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/MichaelHatherly/NumericSuffixes.jl/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="current" title="Home" href=".">
+      Home
+    </a>
+    
+      
+        
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Contents" href="#contents">
+                Contents
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Installation" href="#installation">
+                Installation
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Public Interface" href="#public-interface">
+                Public Interface
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Default Suffixes" href="#default-suffixes">
+                Default Suffixes
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+          <p><a id='NumericSuffixes-1'></a></p>
+<h1 id="numericsuffixes">NumericSuffixes</h1>
+<p><em>Shorthand numeric conversions.</em></p>
+<p><a id='Contents-1'></a></p>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href=".#NumericSuffixes-1">NumericSuffixes</a><ul>
+<li><a href=".#Contents-1">Contents</a></li>
+<li><a href=".#Installation-1">Installation</a></li>
+<li><a href=".#Public-Interface-1">Public Interface</a></li>
+<li><a href=".#Default-Suffixes-1">Default Suffixes</a></li>
+</ul>
+</li>
+</ul>
+<p><a id='Installation-1'></a></p>
+<h2 id="installation">Installation</h2>
+<p>This package is registered in <code>METADATA.jl</code> and so can be installed using <code>Pkg.add</code></p>
+<div class="codehilite"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;NumericSuffixes&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><a id='Public-Interface-1'></a></p>
+<h2 id="public-interface">Public Interface</h2>
+<p><a id='NumericSuffixes' href='#NumericSuffixes'>#</a>
+<strong><code>NumericSuffixes</code></strong> &mdash; <em>Module</em>.</p>
+<p>Provides the <a href=".#NumericSuffixes.@suffix"><code>@suffix</code></a> macro for generating shorthand numeric conversion suffixes.</p>
+<p><strong>Examples</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="n">i8</span>        <span class="c"># Convert `1` to `Int8`.</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="n">u32</span>       <span class="c"># Convert `3` to `UInt32`.</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="n">r16</span> <span class="c"># Convert `4` to `Float16`.</span>
+</pre></div>
+
+
+<p><strong>Default Suffixes</strong></p>
+<p>16 suffixes are provided by default:</p>
+<ul>
+<li><code>i8   --&gt; Int8</code></li>
+<li><code>i16  --&gt; Int16</code></li>
+<li><code>i32  --&gt; Int32</code></li>
+<li><code>i64  --&gt; Int64</code></li>
+<li><code>i128 --&gt; Int128</code></li>
+<li><code>u8   --&gt; UInt8</code></li>
+<li><code>u16  --&gt; UInt16</code></li>
+<li><code>u32  --&gt; UInt32</code></li>
+<li><code>u64  --&gt; UInt64</code></li>
+<li><code>u128 --&gt; UInt128</code></li>
+<li><code>r16  --&gt; Float16</code></li>
+<li><code>r32  --&gt; Float32</code></li>
+<li><code>r64  --&gt; Float64</code></li>
+<li><code>c32  --&gt; Complex32</code></li>
+<li><code>c64  --&gt; Complex64</code></li>
+<li><code>c128 --&gt; Complex128</code></li>
+</ul>
+<p>Additional user defined suffixes can be made using the <code>@suffix</code> macro.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L3-21' class='documenter-source'>source</a><br></p>
+<p><a id='NumericSuffixes.@suffix' href='#NumericSuffixes.@suffix'>#</a>
+<strong><code>NumericSuffixes.@suffix</code></strong> &mdash; <em>Macro</em>.</p>
+<p>Generate a new numeric suffix named <code>n</code> which converts numbers to type <code>T</code>.</p>
+<p><strong>Signature</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">suffix</span> <span class="n">n</span> <span class="n">T</span>
+</pre></div>
+
+
+<p><strong>Examples</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">suffix</span> <span class="n">i8</span> <span class="kt">Int8</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="n">i8</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="kt">Int8</span>
+</pre></div>
+
+
+<p>More complex conversions can be made using anonymous function syntax:</p>
+<div class="codehilite"><pre><span></span><span class="p">@</span><span class="n">suffix</span> <span class="n">t16</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">trunc</span><span class="p">(</span><span class="kt">Int16</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.2</span><span class="n">t16</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="kt">Int16</span>
+</pre></div>
+
+
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L41-67' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">@suffix</span><span class="p">(</span><span class="n">n</span><span class="p">::</span><span class="n">ANY<:Any</span><span class="p">, </span><span class="n">T</span><span class="p">::</span><span class="n">ANY<:Any</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L69">src/NumericSuffixes.jl:69</a>
+</li>
+</ul>
+
+<p><a id='Default-Suffixes-1'></a></p>
+<h2 id="default-suffixes">Default Suffixes</h2>
+<p><a id='Signed-Integers-1'></a></p>
+<h3 id="signed-integers">Signed Integers</h3>
+<p><a id='NumericSuffixes.i8' href='#NumericSuffixes.i8'>#</a>
+<strong><code>NumericSuffixes.i8</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Int8</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">i8</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.i16' href='#NumericSuffixes.i16'>#</a>
+<strong><code>NumericSuffixes.i16</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Int16</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">i16</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.i32' href='#NumericSuffixes.i32'>#</a>
+<strong><code>NumericSuffixes.i32</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Int32</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">i32</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.i64' href='#NumericSuffixes.i64'>#</a>
+<strong><code>NumericSuffixes.i64</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Int64</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">i64</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.i128' href='#NumericSuffixes.i128'>#</a>
+<strong><code>NumericSuffixes.i128</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Int128</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">i128</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='Unsigned-Integers-1'></a></p>
+<h3 id="unsigned-integers">Unsigned Integers</h3>
+<p><a id='NumericSuffixes.u8' href='#NumericSuffixes.u8'>#</a>
+<strong><code>NumericSuffixes.u8</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>UInt8</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">u8</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.u16' href='#NumericSuffixes.u16'>#</a>
+<strong><code>NumericSuffixes.u16</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>UInt16</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">u16</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.u32' href='#NumericSuffixes.u32'>#</a>
+<strong><code>NumericSuffixes.u32</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>UInt32</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">u32</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.u64' href='#NumericSuffixes.u64'>#</a>
+<strong><code>NumericSuffixes.u64</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>UInt64</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">u64</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.u128' href='#NumericSuffixes.u128'>#</a>
+<strong><code>NumericSuffixes.u128</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>UInt128</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">u128</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='Floating-Point-Numbers-1'></a></p>
+<h3 id="floating-point-numbers">Floating Point Numbers</h3>
+<p><a id='NumericSuffixes.r16' href='#NumericSuffixes.r16'>#</a>
+<strong><code>NumericSuffixes.r16</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Float16</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">r16</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.r32' href='#NumericSuffixes.r32'>#</a>
+<strong><code>NumericSuffixes.r32</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Float32</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">r32</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.r64' href='#NumericSuffixes.r64'>#</a>
+<strong><code>NumericSuffixes.r64</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Float64</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">r64</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='Complex-Floating-Point-Numbers-1'></a></p>
+<h3 id="complex-floating-point-numbers">Complex Floating Point Numbers</h3>
+<p><a id='NumericSuffixes.c32' href='#NumericSuffixes.c32'>#</a>
+<strong><code>NumericSuffixes.c32</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Complex{Float16}</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">c32</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.c64' href='#NumericSuffixes.c64'>#</a>
+<strong><code>NumericSuffixes.c64</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Complex{Float32}</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">c64</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+<p><a id='NumericSuffixes.c128' href='#NumericSuffixes.c128'>#</a>
+<strong><code>NumericSuffixes.c128</code></strong> &mdash; <em>Type</em>.</p>
+<p>Numeric suffix for <code>Complex{Float64}</code> values.</p>
+<p><a target='_blank' href='https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L100' class='documenter-source'>source</a><br></p>
+<p><strong>Methods</strong></p>
+<ul class="documenter-methodtable">
+<li>
+    <pre class="documenter-inline"><span class="nf">c128</span><span class="p">(</span><span class="p">)</span></pre>
+    defined at
+    <a target="_blank" href="https://github.com/MichaelHatherly/NumericSuffixes.jl/tree/25861cf5f9ac0550dad002dfd8533072da0c8f4f/src/NumericSuffixes.jl#L30">src/NumericSuffixes.jl:30</a>
+</li>
+</ul>
+
+<p><em>Hiding 1 method defined outside of this package.</em></p>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '.';
+      var repo_id  = 'MichaelHatherly/NumericSuffixes.jl';
+    </script>
+    <script src="./assets/javascripts/application-997097ee0c.js"></script>
+    
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    
+      <script src="./assets/mathjaxhelper.js"></script>
+    
+    
+  </body>
+</html>
