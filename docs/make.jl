@@ -1,11 +1,16 @@
 using Documenter, NumericSuffixes
 
 makedocs(
+    sitename = "NumericSuffixes.jl",
     modules = NumericSuffixes,
-    clean   = false,
+    format = Documenter.Formats.HTML,
+    clean = false,
+    pages = Any["Home" => "index.md"],
 )
 
 deploydocs(
-    deps = Deps.pip("pygments", "mkdocs", "mkdocs-material"),
+    target = "build",
+    deps = nothing,
+    make = nothing,
     repo = "github.com/MichaelHatherly/NumericSuffixes.jl.git",
 )
