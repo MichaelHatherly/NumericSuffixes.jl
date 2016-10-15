@@ -3,7 +3,7 @@ using Documenter, NumericSuffixes
 makedocs(
     sitename = "NumericSuffixes.jl",
     modules = NumericSuffixes,
-    format = Documenter.Formats.HTML,
+    format = :html,
     clean = false,
     pages = Any["Home" => "index.md"],
 )
